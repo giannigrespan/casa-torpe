@@ -37,8 +37,8 @@ const App = () => {
     const fetchBookedDates = async () => {
       // NOTA: In un progetto Vite reale, usa import.meta.env.VITE_...
       // Qui usiamo stringhe vuote per evitare errori di compilazione nell'anteprima
-      const apiKey = "AIzaSyDpqD31D9HMEXmwqI391g5hewvHtp2Y21w"; // import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY
-      const calendarId = "30b4ce93b122922faa6a2d31336dca98611c0790fdd3732491f40593b14f2557@group.calendar.google.com"; // import.meta.env.VITE_GOOGLE_CALENDAR_ID
+      const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY
+      const calendarId = import.meta.env.VITE_GOOGLE_CALENDAR_ID
       
       // Controllo specifico per capire quale variabile manca
       if (!apiKey || !calendarId) {
@@ -128,8 +128,8 @@ const App = () => {
     e.preventDefault();
     
     // NOTA: In produzione usare import.meta.env...
-    const telegramBotToken = "8273698548:AAEhDolCoLh9bXi8v3xYBcRvu0kJK1Pz7oE"; // import.meta.env.VITE_TELEGRAM_BOT_TOKEN
-    const chatId = "243179438"; // import.meta.env.VITE_TELEGRAM_CHAT_ID
+    const telegramBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID
 
     // Se non ci sono token telegram, simula solo l'invio
     if (!telegramBotToken || !chatId) {
