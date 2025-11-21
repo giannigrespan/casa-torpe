@@ -45,7 +45,7 @@ const App = () => {
         console.warn(`⚠️ Google Calendar non configurato.`);
         
         // ATTIVA DEMO MODE: Mostra date finte per testare la UI
-        setIsDemoMode(true);
+        setIsDemoMode(false);
         const today = new Date();
         setBookedDates([
           addDays(today, 2).toISOString().split('T')[0],
