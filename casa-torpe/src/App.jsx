@@ -19,7 +19,7 @@ const App = () => {
 
   // Immagini placeholder (sostituisci con le tue foto reali)
   const images = [
-    'https://github.com/giannigrespan/casa-torpe/blob/829a3dded09320ce982c973d0f8e99362cb157c6/casa-torpe/img/caletta.jpg',
+    'https://github.com/giannigrespan/casa-torpe/blob/829a3dded09320ce982c973d0f8e99362cb157c6/casa-torpe/img/caletta.jpg?raw=true',
     'https://github.com/giannigrespan/casa-torpe/blob/c7b7562d5db323c7a0858d0d1d83df69bfff5704/casa-torpe/img/capocomino.jpg',
     'https://github.com/giannigrespan/casa-torpe/blob/c7b7562d5db323c7a0858d0d1d83df69bfff5704/casa-torpe/img/sangiovanni.jpg'
     
