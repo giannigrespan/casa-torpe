@@ -20,6 +20,7 @@ const App = () => {
   // Immagini placeholder (sostituisci con le tue foto reali)
   const images = [
     '/casa-torpe/img/caletta.jpg',
+    'https://github.com/giannigrespan/casa-torpe/blob/829a3dded09320ce982c973d0f8e99362cb157c6/casa-torpe/img/caletta.jpg'
     '/casa-torpe/img/capocomino.jpg',
     '/casa-torpe/img/sangiovanni.jpg',
     
