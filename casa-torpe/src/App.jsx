@@ -19,10 +19,10 @@ const App = () => {
 
   // Immagini placeholder (sostituisci con le tue foto reali)
   const images = [
-    'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=800&fit=crop',
-    'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&h=800&fit=crop',
-    'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&h=800&fit=crop',
-    'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1200&h=800&fit=crop'
+    'casa-torpe/img/caletta.jpg',
+    'casa-torpe/img/capocomino.jpg',
+    'casa-torpe/img/sangiovanni.jpg',
+    
   ];
 
   // Helper per aggiungere giorni a una data
