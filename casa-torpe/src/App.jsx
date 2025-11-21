@@ -38,7 +38,7 @@ const App = () => {
       // NOTA: In un progetto Vite reale, usa import.meta.env.VITE_...
       // Qui usiamo stringhe vuote per evitare errori di compilazione nell'anteprima
       const apiKey = ""; // import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY
-      const calendarId = ""; // import.meta.env.VITE_GOOGLE_CALENDAR_ID
+      const calendarId = "30b4ce93b122922faa6a2d31336dca98611c0790fdd3732491f40593b14f2557@group.calendar.google.com"; // import.meta.env.VITE_GOOGLE_CALENDAR_ID
       
       // Controllo specifico per capire quale variabile manca
       if (!apiKey || !calendarId) {
