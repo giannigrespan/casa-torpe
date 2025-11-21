@@ -24,60 +24,60 @@ const App = () => {
     'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1200&h=800&fit=crop'
   ];
 
-  // Carica date prenotate (da sostituire con chiamata API reale)
   // Carica date prenotate da Google Calendar
-useEffect(() => {
-  const fetchBookedDates = async () => {
-    const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
-    const calendarId = import.meta.env.VITE_GOOGLE_CALENDAR_ID;
-    
-    if (!apiKey || !calendarId) {
-      console.warn('Google Calendar non configurato');
-      return;
-    }
-    
-    try {
-      const now = new Date().toISOString();
-      const response = await fetch(
-        `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${now}&maxResults=100&singleEvents=true&orderBy=startTime`
-      );
+  useEffect(() => {
+    const fetchBookedDates = async () => {
+      const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+      const calendarId = import.meta.env.VITE_GOOGLE_CALENDAR_ID;
       
-      if (!response.ok) {
-        throw new Error('Errore caricamento calendario');
+      if (!apiKey || !calendarId) {
+        console.warn('Google Calendar non configurato');
+        return;
       }
       
-      const data = await response.json();
-      const dates = [];
-      
-      // Estrai tutte le date dagli eventi
-      data.items?.forEach(event => {
-        if (event.start?.date) {
-          // Evento tutto il giorno
-          const startDate = new Date(event.start.date);
-          const endDate = event.end?.date ? new Date(event.end.date) : startDate;
-          
-          // Aggiungi tutte le date tra start e end
-          for (let d = new Date(startDate); d < endDate; d.setDate(d.getDate() + 1)) {
-            const dateStr = d.toISOString().split('T')[0];
-            if (!dates.includes(dateStr)) {
-              dates.push(dateStr);
+      try {
+        const now = new Date().toISOString();
+        const response = await fetch(
+          `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${now}&maxResults=100&singleEvents=true&orderBy=startTime`
+        );
+        
+        if (!response.ok) {
+          throw new Error('Errore caricamento calendario');
+        }
+        
+        const data = await response.json();
+        const dates = [];
+        
+        // Estrai tutte le date dagli eventi
+        data.items?.forEach(event => {
+          if (event.start?.date) {
+            // Evento tutto il giorno
+            const startDate = new Date(event.start.date);
+            const endDate = event.end?.date ? new Date(event.end.date) : startDate;
+            
+            // Aggiungi tutte le date tra start e end
+            for (let d = new Date(startDate); d < endDate; d.setDate(d.getDate() + 1)) {
+              const dateStr = d.toISOString().split('T')[0];
+              if (!dates.includes(dateStr)) {
+                dates.push(dateStr);
+              }
             }
           }
-        }
-      });
-      
-      setBookedDates(dates);
-    } catch (error) {
-      console.error('Errore Google Calendar:', error);
-      setBookedDates([]);
-    }
-  };
-  
-  fetchBookedDates();
-  // Ricarica ogni 5 minuti
-  const interval = setInterval(fetchBookedDates, 5 * 60 * 1000);
-  return () => clearInterval(interval);
-}, []);
+        });
+        
+        setBookedDates(dates);
+      } catch (error) {
+        console.error('Errore Google Calendar:', error);
+        // Fallback a date mock se l'API fallisce
+        setBookedDates([]);
+      }
+    };
+    
+    fetchBookedDates();
+    // Ricarica ogni 5 minuti
+    const interval = setInterval(fetchBookedDates, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
