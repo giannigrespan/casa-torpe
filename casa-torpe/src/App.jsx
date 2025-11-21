@@ -19,9 +19,9 @@ const App = () => {
 
   // Immagini placeholder (sostituisci con le tue foto reali)
   const images = [
-    'casa-torpe/img/caletta.jpg',
-    'casa-torpe/img/capocomino.jpg',
-    'casa-torpe/img/sangiovanni.jpg',
+    '/casa-torpe/img/caletta.jpg',
+    '/casa-torpe/img/capocomino.jpg',
+    '/casa-torpe/img/sangiovanni.jpg',
     
   ];
 
