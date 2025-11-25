@@ -501,7 +501,7 @@ ${formData.messaggio}
                       </div>
                     </a>
 
-                    <a href={`https://t.me/CasaTorpeBot`} target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
+                    <a href={`https://t.me/myhouseinsardinia_bot`} target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
                       <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-blue-500 transition-colors">
                         <MessageCircle className="w-5 h-5" />
                       </div>
